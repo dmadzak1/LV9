@@ -10,7 +10,7 @@ public class GeografijaDAO {
 
     private GeografijaDAO(){
         try {
-            conn= DriverManager.getConnection("/src/main/resources/jdbc:sqlite:baza.db");
+            conn= DriverManager.getConnection("jdbc:sqlite:baza.db");
             dajDrzaveStatement=conn.prepareStatement("SELECT naziv FROM drzava");
             dajGradoveStatement=conn.prepareStatement("SELECT * FROM grad ORDER BY broj_stanovnika DESC");
             dajGlavniGrad=conn.prepareStatement("SELECT g.id,g.naziv,g.broj_stanovnika,g.drzava FROM grad g,drzava d WHERE g.drzava=d.id AND d.naziv=?");
